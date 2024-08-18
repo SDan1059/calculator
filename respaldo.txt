@@ -1,0 +1,133 @@
+document.addEventListener("DOMContentLoaded", listen);
+
+function listen(){
+    let body = document.querySelector('body');
+    body.addEventListener('click', clicks);
+}
+
+function clicks(event){
+    console.log('entro');
+    if(event.target && event.target.id == 1) concatenamiento(1);
+    if(event.target && event.target.id == 2) concatenamiento(2);
+    if(event.target && event.target.id == 3) concatenamiento(3);
+    if(event.target && event.target.id == 4) concatenamiento(4);
+    if(event.target && event.target.id == 5) concatenamiento(5);
+    if(event.target && event.target.id == 6) concatenamiento(6);
+    if(event.target && event.target.id == 7) concatenamiento(7);
+    if(event.target && event.target.id == 8) concatenamiento(8);
+    if(event.target && event.target.id == 9) concatenamiento(9);
+    if(event.target && event.target.id == 'cero') concatenamiento(0);
+    if(event.target && event.target.id == 'mas') console.log('click+');
+    if(event.target && event.target.id == 'menos') console.log('click-');
+    if(event.target && event.target.id == 'por') console.log('click*');
+    if(event.target && event.target.id == 'entre') console.log('click/');
+    if(event.target && event.target.id == 'igual') console.log('click=');
+}
+
+function concatenamiento(number) {
+    let pantalla = document.getElementById('scream').textContent;
+    document.getElementById('scream').textContent = pantalla+number;
+}
+
+function suma(){
+    let numero = getNumberAndClear();
+    operas.push(numero);
+}
+
+function getNumberAndClear(){
+    let numero = parseInt(document.getElementById('scream').textContent, 10);
+    document.getElementById('scream').textContent = '';
+    return numero;
+}
+
+codigo 2
+
+        const screen = document.getElementById('scream');
+        let currentInput = '';
+        let currentOperator = '';
+        let firstOperand = '';
+        let secondOperand = '';
+
+        function updateScreen(value) {
+            screen.textContent = value;
+        }
+
+        function handleNumber(number) {
+            if (currentOperator === '') {
+                firstOperand += number;
+                updateScreen(firstOperand);
+            } else {
+                secondOperand += number;
+                updateScreen(secondOperand);
+            }
+        }
+
+        function handleOperator(operator) {
+            if (firstOperand === '') return;
+            currentOperator = operator;
+            updateScreen(currentOperator);
+        }
+
+        function calculate() {
+            if (firstOperand === '' || secondOperand === '') return;
+            let result = 0;
+            const num1 = parseFloat(firstOperand);
+            const num2 = parseFloat(secondOperand);
+
+            switch (currentOperator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    return;
+            }
+
+            updateScreen(result);
+            firstOperand = result.toString();
+            secondOperand = '';
+            currentOperator = '';
+        }
+
+        function BorraP() {
+            firstOperand = '';
+            secondOperand = '';
+            currentOperator = '';
+            updateScreen('');
+        }
+
+        document.querySelectorAll('.boton').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.id;
+                if (id === 'igual') {
+                    calculate();
+                } else if (id === 'punto') {
+                    handleNumber('.');
+                } else if (id === 'cero') {
+                    handleNumber('0');
+                } else {
+                    handleNumber(id);
+                }
+            });
+        });
+
+        document.querySelectorAll('.operaciones').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.id;
+                if (id === 'eliminar') {
+                    BorraP();
+                } else {
+                    handleOperator(button.textContent);
+                }
+            });
+        });
+
+

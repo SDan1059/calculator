@@ -1,0 +1,81 @@
+body{
+    background-color: lightgrey;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+h1{
+    color: darkslategrey;
+    text-align: center;
+    font-size: 75px;
+    text-shadow: 5px 7px black;
+}
+
+p{
+    color: brown;
+    text-align: center;
+    font-size: 25px;
+}
+
+.content{
+    display: flex;
+}
+
+.calculator{
+    display: flex;
+    background-color: lightslategrey;
+    border: 3px solid black;
+    padding: 10px;
+    border-radius: 7px;
+    margin: auto;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+
+#scream{
+    margin: auto;
+    padding-left: 7px;
+    background-color: greenyellow;
+    border: solid 2px black;
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.opera{
+    display: flex;
+}
+
+.numeros{
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 5px;
+}
+
+.operaciones{
+    width: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.numeros .boton{
+    width: 60px;
+}
+
+.numeros.boton :hover{
+    background-color: blueviolet;
+}
+
+.operaciones .boton{
+    width: 40px;
+    height: 25px;
+}
